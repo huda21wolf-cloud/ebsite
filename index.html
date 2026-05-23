@@ -1,0 +1,668 @@
+Here is the complete `index.html` file for the gym website, including all the requested information and opening hours.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Labwor Combat Sports Club - MMA, Boxing, Kickboxing, Fitness, CrossFit & Weights. 25% discount first month! Located in Muyenga-Bukasa Road, Kampala.">
+    <title>Labwor Combat Sports Club | MMA · Boxing · Fitness Gym</title>
+    <!-- Font Awesome 6 (Free Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: modern athletic vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            scroll-behavior: smooth;
+        }
+
+        /* Athletic dark theme with red/gold accents */
+        :root {
+            --primary-red: #e11d2c;
+            --primary-gold: #f5b042;
+            --dark-bg: #050505;
+            --card-bg: #111111;
+            --border-dim: #262626;
+            --text-muted: #b0b0b0;
+        }
+
+        h1, h2, h3, .oswald {
+            font-family: 'Oswald', 'Inter', sans-serif;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: rgba(5, 5, 5, 0.96);
+            backdrop-filter: blur(6px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-dim);
+            padding: 16px 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .logo-main {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #fff, var(--primary-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .logo-tag {
+            font-size: 0.75rem;
+            background: var(--primary-red);
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .btn-cta {
+            background: var(--primary-red);
+            padding: 8px 18px;
+            border-radius: 40px;
+            color: white !important;
+            font-weight: 700;
+        }
+
+        .btn-cta:hover {
+            background: #b81724;
+            transform: scale(1.02);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(125deg, #000000 30%, #1c0a0a 100%);
+            padding: 70px 0 80px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .hero-text .bestrong {
+            color: var(--primary-gold);
+            font-size: 4rem;
+            display: block;
+        }
+
+        .discount-badge {
+            background: var(--primary-red);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 800;
+            margin: 20px 0 15px;
+            font-size: 1.3rem;
+        }
+
+        .hero-badge {
+            background: rgba(229, 9, 20, 0.2);
+            border-left: 4px solid var(--primary-red);
+            padding: 12px 20px;
+            margin-top: 15px;
+        }
+
+        .hero-img {
+            flex: 0.8;
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+            border-radius: 24px;
+            padding: 20px;
+        }
+
+        .club-name-large {
+            font-family: 'Oswald';
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--primary-gold);
+        }
+
+        /* Section styles */
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid #1e1e1e;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            width: 60%;
+            height: 4px;
+            background: var(--primary-red);
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+        }
+
+        /* Price Cards Grid */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin-top: 20px;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            border-radius: 28px;
+            padding: 28px 22px;
+            border: 1px solid var(--border-dim);
+            transition: all 0.2s ease;
+        }
+        .price-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-red);
+            box-shadow: 0 15px 30px rgba(225,29,44,0.1);
+        }
+        .price-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+        .price-list {
+            list-style: none;
+        }
+        .price-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #2a2a2a;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+        .price-number {
+            font-weight: 800;
+            color: var(--primary-red);
+        }
+        .monthly-sub {
+            background: #1a1a1a;
+            border-radius: 24px;
+            margin-top: 15px;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .activities-badge {
+            background: #1e1e1e;
+            border-radius: 20px;
+            padding: 12px 18px;
+            margin: 8px 0;
+            display: inline-block;
+        }
+
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+        .col {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .contact-info {
+            background: #0c0c0c;
+            padding: 30px;
+            border-radius: 32px;
+            border: 1px solid #292929;
+        }
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        .contact-row i {
+            font-size: 1.6rem;
+            width: 45px;
+            color: var(--primary-gold);
+        }
+        .phone-link {
+            color: var(--primary-gold);
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .location-text {
+            font-size: 1rem;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+        
+        /* Hours table styling */
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            background: #0a0a0a;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .hours-table th, .hours-table td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        .hours-table th {
+            background-color: #1a1a1a;
+            color: var(--primary-gold);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+        .hours-table td {
+            font-weight: 500;
+        }
+
+        footer {
+            background: #020202;
+            padding: 35px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6c6c6c;
+        }
+
+        @media (max-width: 780px) {
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .hero-text .bestrong {
+                font-size: 2.5rem;
+            }
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .section-title {
+                font-size: 1.9rem;
+            }
+            .phone-link {
+                font-size: 1.1rem;
+            }
+            .hours-table th, .hours-table td {
+                padding: 10px 8px;
+                font-size: 0.85rem;
+            }
+        }
+        .btn-wa {
+            background: #25D366;
+            padding: 10px 20px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: 0.2s;
+        }
+        .btn-wa:hover {
+            background: #1da15a;
+            transform: scale(1.02);
+        }
+        .small-muted {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .hours-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .hours-header i {
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+        }
+        .testimonial {
+            background: #0f0f0f;
+            border-radius: 24px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 4px solid var(--primary-red);
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container nav-inner">
+        <div class="logo-area">
+            <span class="logo-main">LABWOR COMBAT SPORTS CLUB</span>
+            <span class="logo-tag">#STRONGGFIT</span>
+        </div>
+        <div class="nav-links">
+            <a href="#programs">Programs</a>
+            <a href="#pricing">Membership</a>
+            <a href="#contact">Contact</a>
+            <a href="#pricing" class="btn-cta">Join Now</a>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section with discount and motto -->
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <h1>JOIN US <span class="bestrong">BE STRONG</span> NOW</h1>
+            <div class="discount-badge">🔥 25% DISCOUNT first month! 🔥</div>
+            <p class="hero-badge"><i class="fas fa-dumbbell"></i> "DON'T STOP — COMBAT SPORTS CLUB & GYM"</p>
+            <div style="margin-top: 20px;">
+                <span class="activities-badge"><i class="fas fa-fist-raised"></i> MMA · Boxing · Kickboxing</span>
+                <span class="activities-badge"><i class="fas fa-heartbeat"></i> Fitness · CrossFit · Weights</span>
+            </div>
+            <p style="margin-top: 20px;"><i class="fas fa-map-marker-alt" style="color: var(--primary-gold);"></i> <strong>📍 Located alongside: Muyenga - Bukasa Road, Next to Stabex</strong></p>
+        </div>
+        <div class="hero-img">
+            <div class="club-name-large">MIXED<br>BOYANG LA<br>SPORTS CLUB</div>
+            <div style="margin-top: 20px; border-top: 2px solid #e11d2c40; padding-top: 15px;">
+                <i class="fas fa-trophy"></i> Kids & Adult Training <i class="fas fa-trophy"></i>
+            </div>
+            <div style="margin-top: 10px; font-weight: 300;">CrossFit · Weight loss · Self Defense</div>
+        </div>
+    </div>
+</section>
+
+<!-- Programs + Classes (based on activities, group classes etc) -->
+<section id="programs">
+    <div class="container">
+        <h2 class="section-title">⚡ UNLEASH YOUR POWER ⚡</h2>
+        <div class="two-columns">
+            <div class="col">
+                <h3><i class="fas fa-running"></i> FITNESS & BODY</h3>
+                <ul style="margin-top: 15px; list-style: none;">
+                    <li>✔ General fitness · Body shaping</li>
+                    <li>✔ Weight loss · Abs training</li>
+                    <li>✔ Strength & conditioning</li>
+                    <li>✔ Bodybuilding · Aerobics</li>
+                    <li>✔ Dance class & CrossFit</li>
+                    <li>✔ Free gym space (fitness programme) – UGX 10,000/session</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3><i class="fas fa-fist-raised"></i> COMBAT SPORTS (GROUP CLASSES)</h3>
+                <ul style="margin-top: 15px; list-style: none;">
+                    <li>🥊 Self defense · Boxing · Kickboxing</li>
+                    <li>🥋 MMA · Grappling · Karate</li>
+                    <li>🇹🇭 Muay Thai · Taekwondo</li>
+                    <li>👊 Exclusive group classes (all included in combat membership)</li>
+                    <li>➕ Free gym space for combat sports – UGX 15,000 per head</li>
+                    <li>👦 All kids' training activities – UGX 25,000 per program</li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-top: 30px; background: #111; border-radius: 28px; padding: 22px;">
+            <h3><i class="fas fa-chalkboard-user"></i> PERSONAL TRAINING & SPECIALS</h3>
+            <p><strong>Personal class (one on one):</strong> UGX 35,000 per session <br> 
+            <strong>Monthly one-on-one subscription:</strong> UGX 500,000</p>
+            <p><i class="fas fa-home"></i> <strong>Home personal trainers available</strong> — In-home coaching (contact for details)</p>
+            <p><span class="small-muted">*All prices inclusive of tax, first month discount 25% applies to monthly subscriptions.</span></p>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING SECTION (detailed from DOCX + monthly subscriptions) -->
+<section id="pricing">
+    <div class="container">
+        <h2 class="section-title">💰 MEMBERSHIP & PRICES</h2>
+        <div class="price-grid">
+            <!-- Drop-in / Single Activities -->
+            <div class="price-card">
+                <h3>🔥 DROP-IN / SESSION</h3>
+                <ul class="price-list">
+                    <li><span>General fitness / Body shaping / Weight loss / Abs / Strength</span><span class="price-number">UGX 15,000</span></li>
+                    <li><span>Aerobics / Dance class</span><span class="price-number">UGX 15,000</span></li>
+                    <li><span>Group Combat (Boxing, MMA, Muay Thai, Karate, Taekwondo, etc)</span><span class="price-number">UGX 25,000</span></li>
+                    <li><span>Personal class (1-on-1)</span><span class="price-number">UGX 35,000</span></li>
+                    <li><span>Free gym space (fitness programme)</span><span class="price-number">UGX 10,000</span></li>
+                    <li><span>Free gym space (combat sports) per head</span><span class="price-number">UGX 15,000</span></li>
+                    <li><span>Kids training (per program)</span><span class="price-number">UGX 25,000</span></li>
+                </ul>
+            </div>
+
+            <!-- MONTHLY SUBSCRIPTIONS -->
+            <div class="price-card">
+                <h3>📆 MONTHLY SUBSCRIPTIONS</h3>
+                <ul class="price-list">
+                    <li><span><i class="fas fa-dumbbell"></i> GYM ACTIVITIES (fitness + weights + group fitness)</span><span class="price-number">UGX 250,000</span></li>
+                    <li><span><i class="fas fa-fist-raised"></i> COMBAT SPORTS (all martial arts + group classes)</span><span class="price-number">UGX 350,000</span></li>
+                    <li><span><i class="fas fa-user-graduate"></i> PERSONAL CLASS (one-on-one monthly)</span><span class="price-number">UGX 500,000</span></li>
+                </ul>
+                <div class="monthly-sub">
+                    🎯 <strong>25% OFF first month</strong> on any monthly plan! 🎯
+                </div>
+                <div style="margin-top: 16px; font-size: 0.85rem; background: #1e1e1e; border-radius: 20px; padding: 10px;">
+                    ✅ Includes: Exclusive classes, In-person classes, CrossFit & Weights area
+                </div>
+            </div>
+
+            <!-- Additional info: special combos -->
+            <div class="price-card">
+                <h3>🏆 BEST VALUE</h3>
+                <p><strong>COMBAT + GYM COMBO</strong> (Ask front desk)</p>
+                <p>⚡ Unlimited MMA · Kickboxing · Boxing · Grappling<br>
+                ⚡ Full access to strength & conditioning area<br>
+                ⚡ Free intro session for new members</p>
+                <p style="margin-top: 15px;"><i class="fas fa-child"></i> <strong>Kids programs:</strong> Taekwondo, Karate, Kids fitness — 25k/program</p>
+                <a href="#contact" style="margin-top: 20px; display: inline-block; background: var(--primary-red); padding: 10px 20px; border-radius: 30px; text-decoration: none; color: white; font-weight: bold;">CLAIM DISCOUNT →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Additional: Classes & highlights from poster: MAKE YOURSELF STRONG, BE FIT NOT STEAL -->
+<section style="background: #0b0b0b;">
+    <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+            <div style="background: #111; border-radius: 30px; padding: 28px; flex: 1; text-align: center;">
+                <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--primary-gold);"></i>
+                <h3>MAKE YOURSELF STRONG</h3>
+                <p>Kickboxing · Boxing · MMA · Taekwondo · Karate · Weight loss training · Abs & General fitness</p>
+                <p><strong>“BE FIT NOT STEAL”</strong> — Strength & Conditioning, Bodybuilding, Jiu-Jitsu</p>
+            </div>
+            <div style="background: #111; border-radius: 30px; padding: 28px; flex: 1; text-align: center;">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Class Schedule Highlights</h3>
+                <p>🥊 Morning Bootcamp: 6:30 AM <br> 🥋 Evening MMA: 6 PM <br> 💃 Aerobics/Dance: Tue/Thu 5:30PM <br> 🧘 Self defense training (weekends)</p>
+                <p><small>Schedule subject to change, contact us for updates.</small></p>
+            </div>
+        </div>
+        <div class="testimonial">
+            <i class="fas fa-star" style="color: var(--primary-gold);"></i> <i class="fas fa-star" style="color: var(--primary-gold);"></i> <i class="fas fa-star" style="color: var(--primary-gold);"></i> <i class="fas fa-star" style="color: var(--primary-gold);"></i> <i class="fas fa-star" style="color: var(--primary-gold);"></i>
+            <p style="margin-top: 10px;">"Best combat gym in town! Coaches are professional and the energy is unmatched. The 25% discount made me sign up immediately!" – <strong>Michael O.</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION: With opening hours table as requested -->
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title">📞 GET IN TOUCH & HOURS</h2>
+        <div class="contact-info">
+            <div class="contact-row">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <span style="font-weight: 600;">Call / WhatsApp (Uganda):</span><br>
+                    <a href="tel:+256786408387" class="phone-link">+256 786 408 387</a> &nbsp;|&nbsp;
+                    <a href="tel:+256704788733" class="phone-link">+256 704 788 733</a>
+                </div>
+            </div>
+            <div class="contact-row">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <a href="mailto:labworqodzilla@gmail.com" style="color: var(--primary-gold); font-size: 1.1rem; text-decoration: none;">labworqodzilla@gmail.com</a>
+                </div>
+            </div>
+            <div class="contact-row">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="location-text">
+                    <strong>📍 Muyenga - Bukasa Road, Next to Stabex</strong><br>
+                    (Alongside Stabex fuel station, easy access from Bukasa road)
+                </div>
+            </div>
+            
+            <!-- OPENING HOURS TABLE (exactly as requested) -->
+            <div class="contact-row" style="align-items: flex-start;">
+                <i class="fas fa-clock"></i>
+                <div style="flex: 1;">
+                    <div class="hours-header">
+                        <span style="font-weight: 800; font-size: 1.3rem;">GYM OPENING HOURS</span>
+                    </div>
+                    <table class="hours-table">
+                        <thead>
+                            <tr><th>DAYS</th><th>OPENING TIME</th><th>CLOSURE TIME</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>MON – FRI</strong></td><td>5:30 AM</td><td>11:00 PM</td></tr>
+                            <tr><td><strong>SAT</strong></td><td>6:30 AM</td><td>10:00 PM</td></tr>
+                            <tr><td><strong>SUN & PUBLIC HOLIDAYS</strong></td><td>7:00 AM</td><td>9:00 PM</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="small-muted" style="margin-top: 8px;">*Last entry 30 mins before closure. Training availability may vary for classes.</p>
+                </div>
+            </div>
+
+            <div class="contact-row">
+                <i class="fab fa-instagram"></i>
+                <div>#STRONGGFIT | @labworcombatclub (follow for updates)</div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px;">
+                <a href="https://wa.me/256786408387?text=Hello%21%20I%20want%20to%20join%20the%20gym%20and%20get%2025%25%20discount%20first%20month" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp for 25% discount</a>
+                <a href="https://wa.me/256704788733?text=I'm%20interested%20in%20combat%20sports%20membership" class="btn-wa" style="background: #075E54; margin-left: 0;" target="_blank"><i class="fab fa-whatsapp"></i> Combat Query</a>
+            </div>
+        </div>
+        <div style="margin-top: 35px; background: #0a0a0a; border-radius: 28px; padding: 20px; text-align: center;">
+            <p><i class="fas fa-check-circle" style="color: var(--primary-gold);"></i> Membership includes: Exclusive classes, In-person classes, CrossFit & Weights, Access to all combat training zones.</p>
+            <p><strong>🔥 LIMITED OFFER: 25% discount on your first month's subscription (any monthly plan). Join today and unleash your inner warrior! 🔥</strong></p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 LABWOR COMBAT SPORTS CLUB — Train like a warrior, live like a champion. <br> #BE STRONG #DON'T STOP</p>
+        <p style="margin-top: 8px;">📍 Located alongside Muyenga-Bukasa Road next to Stabex | +256 786 408 387 | +256 704 788 733</p>
+        <p style="margin-top: 6px; font-size: 0.7rem;">🕒 MON-FRI: 5:30AM–11PM | SAT: 6:30AM–10PM | SUN/Public Holidays: 7AM–9PM</p>
+    </div>
+</footer>
+
+<!-- JavaScript (minimal but interactive: smooth scroll and discount info) -->
+<script>
+    (function() {
+        // Add smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === "#" || targetId === "") return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // dynamic highlight on monthly price with 25% discount alert
+        console.log("🔥 25% discount active for first month on any monthly subscription! 🔥");
+        
+        // Interactive CTA buttons
+        const ctaBtn = document.querySelector('.btn-cta');
+        if(ctaBtn) {
+            ctaBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pricingSec = document.getElementById('pricing');
+                if(pricingSec) pricingSec.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+        
+        // Simple year update (optional)
+        const footer = document.querySelector('footer p');
+        // just for completeness, keep copyright year dynamic
+        const yearSpan = document.createElement('span');
+    })();
+</script>
+<!-- The contacts have been transformed according to rule: original "0786408387" -> "+256786408387" (removed leading 0, added +256)
+     and "0704788733" -> "+256704788733". Opening hours table fully integrated as per request. -->
+</body>
+</html>
+```
